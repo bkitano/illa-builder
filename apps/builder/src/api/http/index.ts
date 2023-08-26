@@ -126,6 +126,7 @@ export const actionBasicRequest = async <
   requestConfig: AxiosRequestConfig<RequestData>,
 ): Promise<AxiosResponse<ResponseData, RequestData>> => {
   try {
+    console.log({ requestConfig })
     return await actionRuntimeAxios.request({
       ...requestConfig,
     })

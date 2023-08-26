@@ -59,11 +59,17 @@ export const TransformerInitial: Transformer = {
   enable: false,
 }
 
+// export const TransformerInitialTrue: Transformer = {
+//   rawData:
+//     "// type your code here\n" +
+//     "// example: return formatDataAsArray(data).filter(row => row.quantity > 20)\n" +
+//     "return data",
+//   enable: true,
+// }
 export const TransformerInitialTrue: Transformer = {
   rawData:
-    "// type your code here\n" +
-    "// example: return formatDataAsArray(data).filter(row => row.quantity > 20)\n" +
-    "return data",
+    "// type your prompt here\n" +
+    "// example: Extract the most relevant fields for planning a picnic.",
   enable: true,
 }
 

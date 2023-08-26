@@ -43,11 +43,13 @@ export const TransformerComponent: FC<TransformComponentProps> = (props) => {
         <div css={transformTitleStyle}>
           {fullWidth ? (
             <PanelLabel
-              labelName={t("editor.action.panel.label.transformer")}
+              labelName={"LLM Transformer"}
+              // labelName={t("editor.action.panel.label.transformer")}
             />
           ) : (
             <span css={transformTitle}>
-              {t("editor.action.panel.label.transformer")}
+              {"LLM Transformer"}
+              {/* {t("editor.action.panel.label.transformer")} */}
             </span>
           )}
           <div css={transformSpaceStyle} />

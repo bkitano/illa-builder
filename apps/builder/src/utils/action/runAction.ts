@@ -9,7 +9,7 @@ import { getActionList } from "@/redux/currentApp/action/actionSelector"
 import {
   ActionContent,
   ActionItem,
-  ActionType,
+  ActionType, // Transformer,
 } from "@/redux/currentApp/action/actionState"
 import { Events } from "@/redux/currentApp/action/actionState"
 import { MysqlLikeAction } from "@/redux/currentApp/action/mysqlLikeAction"
@@ -35,7 +35,8 @@ import { ILLAEditorRuntimePropsCollectorInstance } from "@/utils/executionTreeHe
 import { isILLAAPiError } from "@/utils/typeHelper"
 import { fetchS3ClientResult } from "./fetchS3ClientResult"
 import { runAllEventHandler } from "./runActionEventHandler"
-import { runTransformer } from "./runActionTransformer"
+// import { runTransformer } from "./runActionTransformer"
+import { runActionPrompt } from "./runActionPrompt"
 import { transResponse } from "./transResponse"
 
 const message = createMessage()
@@ -177,10 +178,24 @@ export const runActionWithExecutionResult = async (
       response,
       isClientS3,
     )
-    let userTransformedData = runTransformer(
+    // let userTransformedData = runTransformer(
+    //   transformer,
+    //   illaInnerTransformedResponse.data ?? "",
+    // )
+    let userTransformedData = await runActionPrompt(
       transformer,
       illaInnerTransformedResponse.data ?? "",
     )
+    console.log("************************************")
+    console.log("************************************")
+    console.log("************************************")
+    console.log("************************************")
+    console.log({ userTransformedData })
+    console.log("************************************")
+    console.log("************************************")
+    console.log("************************************")
+    console.log("************************************")
+
     store.dispatch(
       executionActions.updateExecutionByDisplayNameReducer({
         displayName: displayName,
